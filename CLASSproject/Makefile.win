@@ -1,0 +1,49 @@
+# Project: CLASSproject
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o carCLASS.o management.o window.o BasicWidget.o Pushbutton.o table.o LineEdit.o
+LINKOBJ  = main.o carCLASS.o management.o window.o BasicWidget.o Pushbutton.o table.o LineEdit.o
+LIBS     = -L"D:/编程/Dev-Cpp/MinGW64/lib" -L"D:/编程/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -leasyx -g3
+INCS     = -I"D:/编程/Dev-Cpp/MinGW64/include" -I"D:/编程/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/编程/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/编程/Dev-Cpp/MinGW64/include" -I"D:/编程/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/编程/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/编程/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = CLASSproject.exe
+CXXFLAGS = $(CXXINCS) -ansi -std=c++11 -g3
+CFLAGS   = $(INCS) -ansi -std=c++11 -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+carCLASS.o: carCLASS.cpp
+	$(CPP) -c carCLASS.cpp -o carCLASS.o $(CXXFLAGS)
+
+management.o: management.cpp
+	$(CPP) -c management.cpp -o management.o $(CXXFLAGS)
+
+window.o: window.cpp
+	$(CPP) -c window.cpp -o window.o $(CXXFLAGS)
+
+BasicWidget.o: BasicWidget.cpp
+	$(CPP) -c BasicWidget.cpp -o BasicWidget.o $(CXXFLAGS)
+
+Pushbutton.o: Pushbutton.cpp
+	$(CPP) -c Pushbutton.cpp -o Pushbutton.o $(CXXFLAGS)
+
+table.o: table.cpp
+	$(CPP) -c table.cpp -o table.o $(CXXFLAGS)
+
+LineEdit.o: LineEdit.cpp
+	$(CPP) -c LineEdit.cpp -o LineEdit.o $(CXXFLAGS)
